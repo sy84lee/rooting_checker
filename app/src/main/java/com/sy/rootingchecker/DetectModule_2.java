@@ -1,5 +1,7 @@
 package com.sy.rootingchecker;
 
+import java.util.ArrayList;
+
 public class DetectModule_2 extends ADetectModule {
 
     public DetectModule_2(String _title) {
@@ -7,14 +9,17 @@ public class DetectModule_2 extends ADetectModule {
     }
 
     @Override
-    public int runDetect() {
+    public ArrayList<DetectResult> runDetect() {
+        ArrayList<DetectResult> result = new ArrayList<DetectResult>();
+
         String buildTags = android.os.Build.TAGS;
-        if (buildTags != null && buildTags.contains("test-keys")) {
-            return DETECT;
+        if(buildTags != null && buildTags.contains("test-keys")) {
+            result.add(new DetectResult(title, DETECT));
         }
         else {
-            return NOT_DETECT;
+            result.add(new DetectResult(title, NOT_DETECT));
         }
+        return result;
     }
 
     @Override

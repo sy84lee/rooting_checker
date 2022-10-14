@@ -1,5 +1,7 @@
 package com.sy.rootingchecker;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class Controller {
@@ -16,12 +18,11 @@ public class Controller {
         modules.add(new DetectModule_3("Check Native Level"));
     }
 
-    public int startDetect() {
+    public ArrayList<DetectResult> startDetect() {
+        ArrayList<DetectResult> result = new ArrayList<DetectResult>();
         for (ADetectModule module : modules) {
-            if (module.runDetect() == module.DETECT) {
-                return ADetectModule.DETECT;
-            }
+                result.addAll(module.runDetect());
         }
-        return ADetectModule.NOT_DETECT;
+        return result;
     }
 }

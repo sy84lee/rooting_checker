@@ -7,7 +7,11 @@
 #include "detect_module_2.h"
 #include "detect_module_3.h"
 #include "detect_module_4.h"
+#include "detect_module_5.h"
+#include "detect_module_6.h"
+#include "detect_module_7.h"
 #include <stdint.h>
+#include <string.h>
 
 typedef struct module_info {
     detect_module* module;
@@ -24,10 +28,15 @@ void add_module(detect_module* module, char* name) {
 }
 
 void init_detect_modules() {
-    //add_module(setup_detect_module_1(), "Check execute su");
-    //add_module(setup_detect_module_2(), "Check which su");
-    //add_module(setup_detect_module_3(), "Check su files");
+    memset(modules, 0x00, sizeof(module_info)*100);
+    count_module = 0;
+    add_module(setup_detect_module_1(), "Check execute su");
+    add_module(setup_detect_module_2(), "Check which su");
+    add_module(setup_detect_module_3(), "Check su files");
     add_module(setup_detect_module_4(), "Check xpose files");
+    add_module(setup_detect_module_5(), "Check Build.prop: dev-keys");
+    add_module(setup_detect_module_6(), "Check Build.prop: release-keys");
+    add_module(setup_detect_module_7(), "Check test");
 }
 
 uint32_t getModuleCount() {

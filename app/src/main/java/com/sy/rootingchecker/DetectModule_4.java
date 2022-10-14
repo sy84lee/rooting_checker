@@ -1,5 +1,7 @@
 package com.sy.rootingchecker;
 
+import java.util.ArrayList;
+
 public class DetectModule_4 extends ADetectModule {
 
     private DetectModuleProxy proxy;
@@ -12,8 +14,10 @@ public class DetectModule_4 extends ADetectModule {
     }
 
     @Override
-    public int runDetect() {
-        return proxy.runDetect(DetectIndex);
+    public ArrayList<DetectResult> runDetect() {
+        ArrayList<DetectResult> result = new ArrayList<DetectResult>();
+        result.add(new DetectResult(title, proxy.runDetect(DetectIndex)));
+        return result;
     }
 
     @Override

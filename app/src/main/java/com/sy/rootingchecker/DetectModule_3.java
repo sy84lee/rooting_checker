@@ -15,18 +15,17 @@ public class DetectModule_3 extends ADetectModule {
         int count = proxy.getDetectModuleCount();
         for (int i = 0; i < count; i++) {
             modules.add(new DetectModule_4(proxy.getDetectTitle(i), proxy, i));
-            //Log.i("ssss", proxy.getDetectTitle(i));
         }
     }
 
     @Override
-    public int runDetect() {
+    public ArrayList<DetectResult> runDetect() {
+        ArrayList<DetectResult> result = new ArrayList<DetectResult>();
+
         for (ADetectModule module : modules) {
-            if (module.runDetect() == DETECT) {
-                return DETECT;
-            }
+            result.add(module.runDetect().get(0));
         }
-        return NOT_DETECT;
+        return result;
     }
 
     @Override

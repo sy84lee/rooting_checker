@@ -1,6 +1,7 @@
 package com.sy.rootingchecker;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class DetectModule_1 extends ADetectModule {
 
@@ -9,13 +10,15 @@ public class DetectModule_1 extends ADetectModule {
     }
 
     @Override
-    public int runDetect() {
+    public ArrayList<DetectResult> runDetect() {
+        ArrayList<DetectResult> result = new ArrayList<DetectResult>();
+
         if (new File("/system/app/Superuser.apk").exists()) {
-            return DETECT;
+            result.add(new DetectResult(title, DETECT));
         }
         else {
-            return NOT_DETECT;
-        }
+            result.add(new DetectResult(title, NOT_DETECT));
+        } return result;
     }
 
     @Override

@@ -12,7 +12,7 @@ static int run_detect()
 {
     FILE* f = popen("which su", "r");
 
-    char buff[BUFFER_SIZE];
+    char buff[BUFFER_SIZE] = {0, };
 
     if (f == NULL) {
         return NOT_DETECTED;
