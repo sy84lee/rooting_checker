@@ -2,7 +2,7 @@ package com.sy.rootingchecker;
 
 import java.util.ArrayList;
 
-public class DetectModule_2 extends ADetectModule {
+public class DetectModule_2 extends AbstractDetectModule {
 
     public DetectModule_2(String _title) {
         title = _title;

@@ -1,12 +1,10 @@
 package com.sy.rootingchecker;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 
-public class DetectModule_3 extends ADetectModule {
+public class DetectModule_3 extends AbstractDetectModule {
 
-    ArrayList<ADetectModule> modules = new ArrayList<ADetectModule>();
+    ArrayList<AbstractDetectModule> modules = new ArrayList<AbstractDetectModule>();
 
     public DetectModule_3(String _title) {
         title = _title;
@@ -14,7 +12,7 @@ public class DetectModule_3 extends ADetectModule {
         proxy.initModules();
         int count = proxy.getDetectModuleCount();
         for (int i = 0; i < count; i++) {
-            modules.add(new DetectModule_4(proxy.getDetectTitle(i), proxy, i));
+            modules.add(new DetectModule_3_Item(proxy.getDetectTitle(i), proxy, i));
         }
     }
 
@@ -22,7 +20,7 @@ public class DetectModule_3 extends ADetectModule {
     public ArrayList<DetectResult> runDetect() {
         ArrayList<DetectResult> result = new ArrayList<DetectResult>();
 
-        for (ADetectModule module : modules) {
+        for (AbstractDetectModule module : modules) {
             result.add(module.runDetect().get(0));
         }
         return result;
@@ -30,6 +28,6 @@ public class DetectModule_3 extends ADetectModule {
 
     @Override
     public String getTitle() {
-        return null;
+        return title;
     }
 }

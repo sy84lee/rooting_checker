@@ -1,12 +1,12 @@
 package com.sy.rootingchecker;
 
-import android.util.Log;
+import com.sy.rootingchecker.test.Ctest;
 
 import java.util.ArrayList;
 
 public class Controller {
 
-    ArrayList<ADetectModule> modules = new ArrayList<ADetectModule>();
+    ArrayList<AbstractDetectModule> modules = new ArrayList<AbstractDetectModule>();
 
     public Controller() {
         initModules();
@@ -16,11 +16,12 @@ public class Controller {
         modules.add(new DetectModule_1("Check SuperuserAPK"));
         modules.add(new DetectModule_2("Check Build.prop: test-key"));
         modules.add(new DetectModule_3("Check Native Level"));
+        modules.add(new DetectModule_4("Check Mount Status"));
     }
 
     public ArrayList<DetectResult> startDetect() {
         ArrayList<DetectResult> result = new ArrayList<DetectResult>();
-        for (ADetectModule module : modules) {
+        for (AbstractDetectModule module : modules) {
                 result.addAll(module.runDetect());
         }
         return result;

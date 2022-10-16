@@ -37,28 +37,6 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-//                Runtime runtime = Runtime.getRuntime();
-//                String cmd = "/system/bin/which su";
-//                //String cmd = "ls /system/xbin/";
-//                Process process = null;
-//                try {
-//                    process = runtime.exec(cmd);
-//                    process.waitFor();
-//                    BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
-//                    String line ;
-//                    while ((line = br.readLine()) != null) {
-//                        Log.i("test",line);
-//                    }
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                    Log.e("Process Manager", "Unable to execute top command");
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                } finally {
-//
-//                }
-
             }
         });
       }

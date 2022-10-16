@@ -55,7 +55,7 @@ public class ResultViewAdapter extends RecyclerView.Adapter<ResultViewAdapter.Vi
 
         public void setItem(DetectResult result) {
             item_title.setText(result.title);
-            if (result.result == ADetectModule.DETECT) {
+            if (result.result == AbstractDetectModule.DETECT) {
                 item_icon.setImageResource(R.drawable.ic_unsatisfied);
                 item_icon.setColorFilter(Color.parseColor("#ef5350"));
                 item_result.setText("DETECT!!");
