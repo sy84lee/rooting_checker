@@ -39,6 +39,30 @@ JNIEXPORT jint JNICALL Java_com_sy_rootingchecker_DetectModuleProxy_getDetectMod
 JNIEXPORT jstring JNICALL Java_com_sy_rootingchecker_DetectModuleProxy_getDetectTitle
   (JNIEnv *, jobject, jint);
 
+/*
+ * Class:     com_sy_rootingchecker_DetectModuleProxy
+ * Method:    enableTest
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_com_sy_rootingchecker_DetectModuleProxy_enableTest
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     com_sy_rootingchecker_DetectModuleProxy
+ * Method:    disableTest
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_com_sy_rootingchecker_DetectModuleProxy_disableTest
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     com_sy_rootingchecker_DetectModuleProxy
+ * Method:    setExeclReturnValue
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_com_sy_rootingchecker_DetectModuleProxy_setExeclReturnValue
+  (JNIEnv *, jobject, jint);
+
 #ifdef __cplusplus
 }
 #endif

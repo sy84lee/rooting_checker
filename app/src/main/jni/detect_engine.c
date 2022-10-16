@@ -10,6 +10,10 @@
 #include "detect_module_5.h"
 #include "detect_module_6.h"
 #include "detect_module_7.h"
+#include "detect_module_8.h"
+#include "detect_module_9.h"
+#include "detect_module_10.h"
+#include "library_abstract_layer.h"
 #include <stdint.h>
 #include <string.h>
 
@@ -21,13 +25,13 @@ typedef struct module_info {
 static uint32_t count_module = 0;
 static module_info modules[100];
 
-void add_module(detect_module* module, char* name) {
+static void add_module(detect_module* module, char* name) {
     modules[count_module].module = module;
     modules[count_module].module_name = name;
     count_module++;
 }
 
-void init_detect_modules() {
+static void init_detect_modules() {
     memset(modules, 0x00, sizeof(module_info)*100);
     count_module = 0;
     add_module(setup_detect_module_1(), "Check execute su");
@@ -36,15 +40,14 @@ void init_detect_modules() {
     add_module(setup_detect_module_4(), "Check xpose files");
     add_module(setup_detect_module_5(), "Check Build.prop: dev-keys");
     add_module(setup_detect_module_6(), "Check Build.prop: release-keys");
-    add_module(setup_detect_module_7(), "Check test");
+    //add_module(setup_detect_module_7(), "This is Reference Module for checking mount");
+    add_module(setup_detect_module_8(), "Check Bad Properties values");
+    add_module(setup_detect_module_9(), "Check Magisk resetprop");
+    add_module(setup_detect_module_10(), "Check busybox files");
 }
 
-uint32_t getModuleCount() {
+static uint32_t getModuleCount() {
     return count_module;
-}
-
-JNIEXPORT jint JNICALL Java_com_sy_rootingchecker_Controller_runDetect
-        (JNIEnv *env, jobject this) {
 }
 
 JNIEXPORT void JNICALL Java_com_sy_rootingchecker_DetectModuleProxy_initModules
@@ -65,4 +68,21 @@ JNIEXPORT jint JNICALL Java_com_sy_rootingchecker_DetectModuleProxy_getDetectMod
 JNIEXPORT jstring JNICALL Java_com_sy_rootingchecker_DetectModuleProxy_getDetectTitle
         (JNIEnv *env, jobject this, jint index) {
     return (*env)->NewStringUTF(env, modules[index].module_name);
+}
+
+
+
+JNIEXPORT void JNICALL Java_com_sy_rootingchecker_DetectModuleProxy_enableTest
+        (JNIEnv *env, jobject thiz) {
+    enable_test();
+}
+
+JNIEXPORT void JNICALL Java_com_sy_rootingchecker_DetectModuleProxy_disableTest
+        (JNIEnv *env, jobject thiz) {
+    disable_test();
+}
+
+JNIEXPORT void JNICALL Java_com_sy_rootingchecker_DetectModuleProxy_setExeclReturnValue
+        (JNIEnv *env, jobject thiz, jint value) {
+    set_execl_return_value(value);
 }

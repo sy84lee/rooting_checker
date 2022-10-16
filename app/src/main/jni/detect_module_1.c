@@ -3,6 +3,7 @@
 //
 
 #include "detect_module_1.h"
+#include "library_abstract_layer.h"
 
 #include <stdlib.h>
 #include <unistd.h>
@@ -12,14 +13,16 @@
 
 static int run_detect()
 {
-    int result = 0;
+    int result = NOT_DETECTED;
     int status = 0;
 
     pid_t pid = -1;
     pid = fork();
 
     if (pid == 0) {
-        int execute = execl("/system/bin/su", "su", NULL);
+
+        int execute = sal_execl()("/system/bin/su", "su", NULL);
+        //int execute = execl("/system/bin/su", "su", NULL);
 
         if(execute != 0) {  //Not Execute
             exit(1);

@@ -3,6 +3,7 @@
 //
 
 #include "detect_module_6.h"
+#include "library_abstract_layer.h"
 
 #include <sys/system_properties.h>
 #include <string.h>
@@ -13,7 +14,8 @@ static int run_detect()
 {
     const char *TEST_KEYS_VALUE = "release-keys";
     char value[100] = {0,};
-    int length = __system_property_get(ANDROID_OS_BUILD_TAGS, value);
+    int length = sal__system_property_get()(ANDROID_OS_BUILD_TAGS, value);
+    //int length = __system_property_get(ANDROID_OS_BUILD_TAGS, value);
 
     if (length > 0) {
         if (strcmp(value, TEST_KEYS_VALUE) != 0) {

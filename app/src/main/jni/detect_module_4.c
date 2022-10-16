@@ -3,6 +3,7 @@
 //
 
 #include "detect_module_4.h"
+#include "library_abstract_layer.h"
 
 #include <unistd.h>
 
@@ -35,7 +36,8 @@ static int run_detect()
     for (int i = 0; XPOSE_FILES[i]; i++) {
         if (0 == XPOSE_FILES[i])
             break;
-        int result = access(XPOSE_FILES[i], F_OK);
+        int result = sal_access()(XPOSE_FILES[i], F_OK);
+        //int result = access(XPOSE_FILES[i], F_OK);
         if (result == 0) {
             return DETECTED;
         }

@@ -2,6 +2,7 @@
 // Created by sy84l on 2022-10-11.
 //
 #include "detect_module_2.h"
+#include "library_abstract_layer.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -10,7 +11,8 @@
 
 static int run_detect()
 {
-    FILE* f = popen("which su", "r");
+    FILE* f = sal_popen()("which su", "r");
+    //FILE* f = popen("which su", "r");
 
     char buff[BUFFER_SIZE] = {0, };
 
