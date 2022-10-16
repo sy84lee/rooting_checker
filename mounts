@@ -1,0 +1,1 @@
+tmpfs /system tmpfs rw,seclabel,nosuid,relatime,mode=755 0 0
