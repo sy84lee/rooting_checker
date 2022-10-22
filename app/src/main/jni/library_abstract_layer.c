@@ -7,6 +7,7 @@
 
 #define RELEASE_MODE    0
 #define TEST_MODE       1
+#define MAX_STRING      128
 
 // TEST enable/disable
 static int MOCK_INTERFACE = RELEASE_MODE;
@@ -40,10 +41,10 @@ int (*sal_execl())(const char* __path, const char* __arg0, ...) {
 }
 
 // For mock popen()
-static char popen_command[100] = {0, };
+static char popen_command[MAX_STRING] = {0, };
 
 void set_popen_command_value(const char* value) {
-    memset(popen_command, 0x00, 100);
+    memset(popen_command, 0x00, MAX_STRING);
     memcpy(popen_command, value, strlen(value));
 }
 
@@ -88,10 +89,10 @@ static int SYSTEM_PROPERTY_ID_RO_SECURE               = 4;
 static int SYSTEM_PROPERTY_ID_SYS_INITD               = 5;
 static int SYSTEM_PROPERTY_ID_RO_BUILD_SELINUX        = 6;
 
-static char system_properties[10][100] = {0, };
+static char system_properties[10][MAX_STRING] = {0, };
 
 void set_property_value(const int id, const char* value) {
-    memset(system_properties[id], 0x00, 100);
+    memset(system_properties[id], 0x00, MAX_STRING);
     memcpy(system_properties[id], value, strlen(value));
 }
 

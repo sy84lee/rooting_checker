@@ -11,6 +11,7 @@
 #include <paths.h>
 #include <signal.h>
 
+//3. Detect Module 3: Check execute su
 static int run_detect()
 {
     int result = NOT_DETECTED;
@@ -22,7 +23,6 @@ static int run_detect()
     if (pid == 0) {
 
         int execute = sal_execl()("/system/bin/su", "su", NULL);
-        //int execute = execl("/system/bin/su", "su", NULL);
 
         if(execute != 0) {  //Not Execute
             exit(1);

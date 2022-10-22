@@ -9,10 +9,10 @@
 
 #define BUFFER_SIZE    1024
 
+//4. Detect Module 4: Check which su
 static int run_detect()
 {
     FILE* f = sal_popen()("which su", "r");
-    //FILE* f = popen("which su", "r");
 
     char buff[BUFFER_SIZE] = {0, };
 

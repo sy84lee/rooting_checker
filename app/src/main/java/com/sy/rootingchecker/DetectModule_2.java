@@ -2,6 +2,7 @@ package com.sy.rootingchecker;
 
 import java.util.ArrayList;
 
+//2. Detect Module 2: Check Build.TAGS: test-keys
 public class DetectModule_2 extends AbstractDetectModule {
 
     public DetectModule_2(String _title) {

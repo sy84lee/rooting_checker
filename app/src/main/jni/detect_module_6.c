@@ -10,6 +10,7 @@
 
 static char *ANDROID_OS_BUILD_TAGS = "ro.build.tags";
 
+//8. Detect Module 8: Check Build.TAGS: release-keys
 static int run_detect()
 {
     const char *TEST_KEYS_VALUE = "release-keys";

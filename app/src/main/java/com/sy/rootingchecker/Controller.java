@@ -1,7 +1,5 @@
 package com.sy.rootingchecker;
 
-import com.sy.rootingchecker.test.Ctest;
-
 import java.util.ArrayList;
 
 public class Controller {

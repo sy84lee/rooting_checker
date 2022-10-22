@@ -11,7 +11,6 @@ FILES := 	detect_engine.c 			\
 			detect_module_7.c			\
 			detect_module_8.c			\
 			detect_module_9.c			\
-			detect_module_10.c			\
 			library_abstract_layer.c	\
 			ctest.c
 

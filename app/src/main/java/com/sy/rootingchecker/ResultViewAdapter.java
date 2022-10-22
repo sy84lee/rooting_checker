@@ -15,10 +15,10 @@ import java.util.ArrayList;
 
 public class ResultViewAdapter extends RecyclerView.Adapter<ResultViewAdapter.ViewHolder> {
 
-   ArrayList<DetectResult> arr_menu = new ArrayList<DetectResult>();
+   ArrayList<DetectResult> detectResults = new ArrayList<DetectResult>();
 
    public ResultViewAdapter(ArrayList<DetectResult> list){
-        this.arr_menu = list;
+        this.detectResults = list;
     }
 
     @NonNull
@@ -32,13 +32,13 @@ public class ResultViewAdapter extends RecyclerView.Adapter<ResultViewAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        DetectResult result = arr_menu.get(position);
+        DetectResult result = detectResults.get(position);
         holder.setItem(result);
     }
 
     @Override
     public int getItemCount() {
-        return arr_menu.size();
+        return detectResults.size();
     }
 
     public  class ViewHolder extends RecyclerView.ViewHolder {

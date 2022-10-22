@@ -4,9 +4,9 @@
 
 #include "detect_module_4.h"
 #include "library_abstract_layer.h"
-
 #include <unistd.h>
 
+//6. Detect Module 6: Check xpose files
 const char * const XPOSE_FILES[] = {
         "/system/lib/libxposed_art.so",
         "/system/lib64/libxposed_art.so",

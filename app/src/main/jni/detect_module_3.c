@@ -3,9 +3,9 @@
 //
 #include "detect_module_3.h"
 #include "library_abstract_layer.h"
-
 #include <unistd.h>
 
+//5. Detect Module 5: Check su files
 const char * const SU_PATHS[] = {
         "/data/local/su",
         "/data/local/bin/su",

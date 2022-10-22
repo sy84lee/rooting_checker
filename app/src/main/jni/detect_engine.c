@@ -10,9 +10,9 @@
 #include "detect_module_5.h"
 #include "detect_module_6.h"
 #include "detect_module_7.h"
+#include "detect_module_7.h"
 #include "detect_module_8.h"
 #include "detect_module_9.h"
-#include "detect_module_10.h"
 #include "library_abstract_layer.h"
 #include <stdint.h>
 #include <string.h>
@@ -40,10 +40,9 @@ static void init_detect_modules() {
     add_module(setup_detect_module_4(), "Check xpose files");
     add_module(setup_detect_module_5(), "Check Build.prop: dev-keys");
     add_module(setup_detect_module_6(), "Check Build.prop: release-keys");
-    //add_module(setup_detect_module_7(), "This is Reference Module for checking mount");
-    add_module(setup_detect_module_8(), "Check Bad Properties values");
-    add_module(setup_detect_module_9(), "Check Magisk resetprop");
-    add_module(setup_detect_module_10(), "Check busybox files");
+    add_module(setup_detect_module_7(), "Check Bad Properties values");
+    add_module(setup_detect_module_8(), "Check Magisk resetprop");
+    add_module(setup_detect_module_9(), "Check busybox files");
 }
 
 static uint32_t getModuleCount() {

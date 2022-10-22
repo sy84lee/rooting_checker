@@ -4,12 +4,12 @@
 
 #include "detect_module_5.h"
 #include "library_abstract_layer.h"
-
 #include <sys/system_properties.h>
 #include <string.h>
 
 static char *ANDROID_OS_BUILD_TAGS = "ro.build.tags";
 
+//7. Detect Module 7: Check Build.TAGS: dev-keys
 static int run_detect()
 {
     const char *TEST_KEYS_VALUE = "dev-keys";

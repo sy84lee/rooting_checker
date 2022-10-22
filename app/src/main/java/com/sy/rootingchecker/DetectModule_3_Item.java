@@ -5,18 +5,22 @@ import java.util.ArrayList;
 public class DetectModule_3_Item extends AbstractDetectModule {
 
     private DetectModuleProxy proxy;
-    private int DetectIndex;
+    private int detectIndex;
 
     public DetectModule_3_Item(String _title, DetectModuleProxy _proxy, int _detectIndex) {
         title = _title;
         proxy = _proxy;
-        DetectIndex = _detectIndex;
+        detectIndex = _detectIndex;
     }
 
     @Override
     public ArrayList<DetectResult> runDetect() {
         ArrayList<DetectResult> result = new ArrayList<DetectResult>();
-        result.add(new DetectResult(title, proxy.runDetect(DetectIndex)));
+        try {
+            result.add(new DetectResult(title, proxy.runDetect(detectIndex)));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return result;
     }
 

@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+//12. Detect Module 12: Check mount status
 public class DetectModule_4 extends AbstractDetectModule {
 
     private String READ_ONLY_PATH[] = { "/system",
