@@ -29,7 +29,7 @@ public class detect_module_3_test {
     }
 
     @Test
-    public void run_detect_Not_Exist_Su_Files_DETECT() throws IOException {
+    public void run_detect_Not_Exist_Su_Files_NOT_DETECT() throws IOException {
         Ctest ctest = new Ctest();
         ctest.enableTest();
         ctest.setAccessReturnValue(1);

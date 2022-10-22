@@ -16,27 +16,27 @@ public class detect_module_9_test {
     }
 
     @Test
-    public void run_detect_Exist_Magisk_File_DETECT() throws IOException {
+    public void run_detect_Exist_Busybox_Files_DETECT() throws IOException {
         Ctest ctest = new Ctest();
         ctest.enableTest();
         ctest.setAccessReturnValue(0);
 
         DetectModuleProxy proxy = new DetectModuleProxy();
         proxy.initModules();
-        assertEquals(DETECT, proxy.runDetect(7));
+        assertEquals(DETECT, proxy.runDetect(8));
 
         ctest.disableTest();
     }
 
     @Test
-    public void run_detect_Not_Exist_Magisk_File_NOT_DETECT() throws IOException {
+    public void run_detect_Not_Exist_Busybox_Files_NOT_DETECT() throws IOException {
         Ctest ctest = new Ctest();
         ctest.enableTest();
         ctest.setAccessReturnValue(1);
 
         DetectModuleProxy proxy = new DetectModuleProxy();
         proxy.initModules();
-        assertEquals(NOT_DETECT, proxy.runDetect(7));
+        assertEquals(NOT_DETECT, proxy.runDetect(8));
 
         ctest.disableTest();
     }
