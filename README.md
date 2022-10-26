@@ -17,8 +17,8 @@ Rooting Checker은 연속된 Detect Module이 동작할 수 있도록 설계하�
 Rooting Checker은 Native Layer의 Detect Module 그리고 Java Layer의 Detect Module을 모두 추가할 수 있으며, 각각은 Composite Pattern을 적용함으로 Detect Module의 추가 또는 수정 뿐 만 아니라, Detect Module들을 카테고리화 시켜 적용할 수도 있다.
 Java Layer의 경우 각각의 DetectModule들은 Abstract Class인 “AbstractDetectModule”을 상속받아 구현함으로 Composite Pattern을 구현하였고, Native Layer의 경우 함수 포인터를 응용하여 각각의 DetectModule에서 detect_module.h를 구현하게하여 Composite Pattern을 구현하였다.
 Native Layer 개발자 또는 Java 개발자는 다른 Layer을 바라보지 않고 각 Layer에서 Detect Module을 구현하여 추가할 수 있다. 방법은 아래와 같다.
-1)	Java Layer
-  A.	AbstractDetectModule을 상속받아 Detect Module을 구현
+1)Java Layer
+  A. AbstractDetectModule을 상속받아 Detect Module을 구현
   B.	Controller Class의 InitModule함수에 신규 Detect Module을 추가
 2)	Native Layer
   A.	detect_module.h의 구현된 Structure을 구현
